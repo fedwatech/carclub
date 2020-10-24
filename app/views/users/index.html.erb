@@ -2,7 +2,9 @@
 <p>Find me in app/views/users/index.html.erb</p>
 
 <% @users.each do |user| %>
-
-<h2><%= user.email %></h2>
-
+<div>
+    <h2><%= user.email %></h2>
+    <%= image_tag user.profile_image %>
+</div>
+<p> num of cars <%= user.cars.count %> </p>
 <% end %>
