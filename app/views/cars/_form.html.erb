@@ -47,6 +47,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :transmition %>
+    <%= form.select :transmition, Car.transmitions %>
+  </div>
+
+  <div class="field">
     <%= form.label :millage %>
     <%= form.number_field :millage %>
   </div>

@@ -2,7 +2,7 @@
 <div class='cars_container'>
   <% @cars.each do |car| %>
     <div class="car_container"> 
-      <h4><%= car.name %></h4>
+      <h4><%= link_to car.name, car %></h4>
       <div class="car_image_container"><%= image_tag car.car_image %></div>
       <div class="car_information">
         <p><%= car.description %></p>

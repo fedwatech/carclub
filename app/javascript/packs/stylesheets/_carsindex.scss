@@ -2,11 +2,15 @@
     width: 80%;
     margin: auto;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .car_container {
     border: 1px solid orange;
-    margin: 0 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .car_image_container {
