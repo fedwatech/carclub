@@ -1,4 +1,13 @@
 <h1 class="title">Cars</h1>
+
+<%= search_form_for @q do |f| %>
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.submit %>
+<% end %>
+
+
 <div class='cars_container'>
   <% @cars.each do |car| %>
     <div class="car_container"> 

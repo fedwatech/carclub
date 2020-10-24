@@ -51,3 +51,4 @@ group :test do
 end
 
 gem 'devise'
+gem 'ransack', github: 'activerecord-hackery/ransack'
