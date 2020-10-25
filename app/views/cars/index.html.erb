@@ -5,7 +5,7 @@
   <%= f.search_field :year_eq, placeholder: "year" %>
   <%= f.search_field :power_eq, placeholder: "power" %>
   <%= f.search_field :engine_cont, placeholder: "engine" %>
-  <%= f.select :transmition_eq, Car.transmitions %>
+  <%= f.select :transmition_eq, Car.transmitions, include_blank: true %>
 
   <%= f.submit %>
 <% end %>
@@ -28,7 +28,9 @@
           <span>power : <%= car.power %></span>
           <span>transmition : <%= car.transmition %></span>
         </h4>
-        <%= link_to 'send invitation', send_request_friend_path(user_id: car.user.id)%>
+        <% if current_user != car.user %>
+          <%= link_to 'send invitation', send_request_friend_path(user_id: car.user.id)%>
+        <% end %>
       </div>
       <!--<div class="car_operation">
         <span><%= link_to 'Show', car %></span>
