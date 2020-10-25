@@ -2,8 +2,9 @@
 
 <%= search_form_for @q do |f| %>
   <%= f.search_field :name_cont, placeholder: "name" %>
-  <%= f.search_field :user_email_cont, placeholder: "username" %>
   <%= f.search_field :year_eq, placeholder: "year" %>
+  <%= f.search_field :power_eq, placeholder: "power" %>
+  <%= f.search_field :engine_cont, placeholder: "engine" %>
   <%= f.select :transmition_eq, Car.transmitions %>
 
   <%= f.submit %>
@@ -27,6 +28,7 @@
           <span>power : <%= car.power %></span>
           <span>transmition : <%= car.transmition %></span>
         </h4>
+        <%= link_to 'send invitation', send_request_friend_path(user_id: car.user.id)%>
       </div>
       <!--<div class="car_operation">
         <span><%= link_to 'Show', car %></span>

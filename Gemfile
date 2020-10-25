@@ -52,3 +52,4 @@ end
 
 gem 'devise'
 gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'has_friendship'
