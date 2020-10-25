@@ -17,7 +17,6 @@
       <h4><%= link_to car.name, car %></h4>
       <div class="car_image_container"><%= image_tag car.car_image %></div>
       <div class="car_information">
-        <p><%= car.description %></p>
         <h4 class="user_information">
           <div class="profile_image_container">
             <%= image_tag car.user.profile_image %>
@@ -29,12 +28,13 @@
           <span>transmition : <%= car.transmition %></span>
         </h4>
         <% if current_user != car.user %>
-          <% if !invitation_sent?(car.user) %>
-            <%= link_to 'send invitation', send_request_friend_path(user_id: car.user.id)%>
-          <% elsif invitation_sent?(car.user) %>
-            <%= link_to 'accept invitation' %>
-            <%= link_to 'decline invitation' %>
+          <%= current_user.friends.count %> friends
+          <div>
+          <h6>Commun friends</h6>
+          <% cummon_friend(car.user).each do |cum_friend| %>
+            <%= cum_friend.email.split('@')[0] %>
           <% end %>
+          </div>
         <% end %>
       </div>
       <!--<div class="car_operation">

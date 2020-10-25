@@ -2,8 +2,22 @@
 <p>Find me in app/views/users/index.html.erb</p>
 
 <% @users.each do |user| %>
-<div>
+<div class="user_container">
     <h2><%= user.email %></h2>
+    <div class="img_user_container">
     <%= image_tag user.profile_image %>
+    <% if current_user != user %>
+        <% if current_user.friends_with?(user)%>
+            Friend
+        <% elsif invitation_requested?(user) %>
+            <%= link_to 'accept invitation', accept_request_friend_path(user_id: user.id)%>
+            decline
+        <% elsif !invitation_sent?(user) %>
+            <%= link_to 'send invitation', send_request_friend_path(user_id: user.id)%>
+        <% elsif invitation_sent?(user) %>
+            Invitation sent ...
+        <% end %>
+    <% end %>
+    </div>
 </div>
 <% end %>

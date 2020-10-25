@@ -5,7 +5,13 @@ class FriendshipsController < ApplicationController
   def send_request
     current_user.friend_request(@user)
     flash[:notice] = 'Invitation sent successfully'
-    redirect_to root_path
+    redirect_to users_path
+  end
+
+  def accept_request
+    current_user.accept_request(@user)
+    flash[:notice] = 'Invitation accepted successfully'
+    redirect_to users_path
   end
 
 
