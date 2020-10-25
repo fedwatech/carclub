@@ -29,7 +29,12 @@
           <span>transmition : <%= car.transmition %></span>
         </h4>
         <% if current_user != car.user %>
-          <%= link_to 'send invitation', send_request_friend_path(user_id: car.user.id)%>
+          <% if !invitation_sent?(car.user) %>
+            <%= link_to 'send invitation', send_request_friend_path(user_id: car.user.id)%>
+          <% elsif invitation_sent?(car.user) %>
+            <%= link_to 'accept invitation' %>
+            <%= link_to 'decline invitation' %>
+          <% end %>
         <% end %>
       </div>
       <!--<div class="car_operation">
