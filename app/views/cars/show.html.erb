@@ -46,7 +46,11 @@
 </p>
 
 <p> 
-  <%= image_tag(@car.car_image)  %>
+  <% if @car.car_image.attached? %>
+    <%= image_tag @car.car_image %>
+  <% else %>
+    <%= image_pack_tag 'no_image.png'%>
+  <% end %>
 </p>
 
 <p>

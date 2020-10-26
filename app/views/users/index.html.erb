@@ -5,7 +5,11 @@
             <div class="card-header">
                 <div class="row align-items-center">
                     <div class='col-1'>
-                        <%= image_tag user.profile_image, class: "img-fluid" %>
+                        <% if user.profile_image.attached? %>
+                            <%= image_tag user.profile_image, class: "img-fluid" %>
+                        <% else %>
+                            no image
+                        <% end %>
                     </div>
                     <div class="col-4">
                         <%= user.username %>
