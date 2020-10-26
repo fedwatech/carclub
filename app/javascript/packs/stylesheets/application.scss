@@ -1,22 +1,5 @@
 @import "~bootstrap/scss/bootstrap"; // never forget the semicolon at the end
 
-
-@import 'carsindex';
-@import 'usersindex';
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-.header {
-    display: flex;
-    justify-content: space-between;
-    background-color: aqua;
-    padding: 10px 20px;
-}
-
-.title {
-    text-align: center;
-    margin: 20px 0;
+.card-img-top {
+    height: 150px;
 }

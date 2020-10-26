@@ -1,49 +1,77 @@
 <h1 class="title">Cars</h1>
 
 <%= search_form_for @q do |f| %>
-  <%= f.search_field :name_cont, placeholder: "name" %>
-  <%= f.search_field :year_eq, placeholder: "year" %>
-  <%= f.search_field :power_eq, placeholder: "power" %>
-  <%= f.search_field :engine_cont, placeholder: "engine" %>
-  <%= f.select :transmition_eq, Car.transmitions, include_blank: true %>
+<%= f.search_field :name_cont, placeholder: "name" %>
+<%= f.search_field :year_eq, placeholder: "year" %>
+<%= f.search_field :power_eq, placeholder: "power" %>
+<%= f.search_field :engine_cont, placeholder: "engine" %>
+<%= f.select :transmition_eq, Car.transmitions, include_blank: true %>
 
-  <%= f.submit %>
+<%= f.submit %>
 <% end %>
 
-
-<div class='cars_container'>
+<!-- 
+<div class="">
   <% @cars.each do |car| %>
-    <div class="car_container"> 
-      <h4><%= link_to car.name, car %></h4>
-      <div class="car_image_container"><%= image_tag car.car_image %></div>
-      <div class="car_information">
-        <h4 class="user_information">
-          <div class="profile_image_container">
-            <%= image_tag car.user.profile_image %>
-          </div>
-          <span>username : <%= car.user.username %></span>
-          <span> year : <%= car.year %></span>
-          <span>engine : <%= car.engine %></span>
-          <span>power : <%= car.power %></span>
-          <span>transmition : <%= car.transmition %></span>
-        </h4>
-        <% if current_user != car.user %>
-          <%= current_user.friends.count %> friends
-          <div>
-          <h6>Commun friends</h6>
-          <% cummon_friend(car.user).each do |cum_friend| %>
-            <%= cum_friend.email.split('@')[0] %>
-          <% end %>
-          </div>
+  <div class="">
+    <h4><%= link_to car.name, car %></h4>
+    <div class=""><%= image_tag car.car_image %></div>
+    <div class="">
+      <h4 class="">
+        <div class="">
+          <%= image_tag car.user.profile_image %>
+        </div>
+        <span>username : <%= car.user.username %></span>
+        <span> year : <%= car.year %></span>
+        <span>engine : <%= car.engine %></span>
+        <span>power : <%= car.power %></span>
+        <span>transmition : <%= car.transmition %></span>
+      </h4>
+      <% if current_user != car.user %>
+      <%= current_user.friends.count %> friends
+      <div>
+        <h6>Commun friends</h6>
+        <% cummon_friend(car.user).each do |cum_friend| %>
+        <%= cum_friend.email.split('@')[0] %>
         <% end %>
       </div>
-      <!--<div class="car_operation">
-        <span><%= link_to 'Show', car %></span>
-        <span><%= link_to 'Edit', edit_car_path(car) %></span>
-        <span><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></span>
-      </div>-->
-    </div>  
+      <% end %>
+    </div>
+  </div>
   <% end %>
-</div>
+</div> -->
 
-
+<section class="resume-section" id="projects">
+  <div class="resume-section-content">
+    <div class="album py-5">
+      <div class="container">
+        <div class="row">
+          <% @cars.each do |car| %>
+            <div class="col-md-3">
+              <h4 class="text-center"><%= link_to car.name, car, class: "text-danger text-capitalize" %></h4>
+              <div class="card mb-4 shadow-sm">
+                <%= image_tag car.car_image, class: "card-img-top" %>
+                <div class="card-body">
+                  <div class="row align-items-center">
+                    <div class='col-4'>
+                       <%= image_tag car.user.profile_image, class: "img-fluid" %>
+                    </div>
+                    <div class='col-8'>
+                      <%= car.user.username %>
+                    </div>
+                  </div>
+                  <div>
+                    <div> year : <%= car.year %></div>
+                    <div>engine : <%= car.engine %></div>
+                    <div>power : <%= car.power %></div>
+                    <div>transmition : <%= car.transmition %></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
