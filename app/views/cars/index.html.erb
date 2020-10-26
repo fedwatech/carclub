@@ -8,6 +8,7 @@
   <%= f.search_field :year_eq, placeholder: "year" %>
   <%= f.search_field :power_eq, placeholder: "power" %>
   <%= f.search_field :engine_cont, placeholder: "engine" %>
+  <%= f.search_field :price_per_day_eq, placeholder: "price per day" %>
   <%= f.select :transmition_eq, Car.transmitions, include_blank: true %>
 
   <%= f.submit %>
